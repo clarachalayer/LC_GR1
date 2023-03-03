@@ -131,6 +131,26 @@ void procAjoutEnTeteDeListe(Maillon **m, int n, const char *nom)
     }
 }
 
+void procAjoutEnFinDeListe(Maillon **m, int n, const char *nom)
+{
+    Maillon *temp = initMaillon(n, nom);
+    Maillon *tail = *m;
+
+    if (*m == NULL)
+    {
+        *m = temp;
+    }
+    else
+    {
+        while (tail->next != NULL)
+        {
+            tail = tail->next;
+        }
+        tail->next = temp;
+    }
+
+}
+
 
 
 int main()
@@ -151,9 +171,11 @@ int main()
     afficherListeRecur(liste);
 
     printf("\n\n********* Ajouter en tete*******\n\n");
-    ajoutFinRecur(&liste,3,"C");
-    ajoutFinRecur(&liste,4,"D");
+    procAjoutEnTeteDeListe(&liste,3,"C");
+    procAjoutEnTeteDeListe(&liste,4,"D");
     afficherListeAvecWhile(liste);
+
+
 
 
     // Liberation
