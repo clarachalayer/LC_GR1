@@ -175,7 +175,10 @@ int main()
     procAjoutEnTeteDeListe(&liste,4,"D");
     afficherListeAvecWhile(liste);
 
-
+    printf("\n\n********* Ajouter en fin *******\n\n");
+    procAjoutEnFinDeListe(&liste,5,"E");
+    procAjoutEnFinDeListe(&liste,6,"F");
+    afficherListeAvecWhile(liste);
 
 
     // Liberation
