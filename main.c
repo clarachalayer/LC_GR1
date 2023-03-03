@@ -108,6 +108,16 @@ void afficherListeRecur(Maillon *liste)
     }
 }
 
+void freeRec(Maillon **m){
+
+    if(*m == NULL)
+        return;
+    freeRec(&((*m)->next));
+    free(*m);
+    *m= NULL;
+
+}
+
 
 
 int main()
