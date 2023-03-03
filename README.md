@@ -2,10 +2,10 @@
 
 **A faire**
 
-- [X] Liberation récursivité
-- [X] Ajouter à la fin
-- [X] Ajouter au début
-- [X] Piocher au début
+- [ ] Liberation récursivité
+- [ ] Ajouter à la fin
+- [ ] Ajouter au début
+- [ ] Piocher au début
 - [ ] Piocher à la fin
 - [ ] Rechercher
 
