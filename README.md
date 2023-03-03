@@ -3,7 +3,7 @@
 **A faire**
 
 - [X] Liberation récursivité
-- [ ] Ajouter au début
+- [X] Ajouter au début
 - [ ] Ajouter à la fin
 - [ ] Piocher au début
 - [ ] Piocher à la fin

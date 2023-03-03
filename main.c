@@ -118,6 +118,19 @@ void freeRec(Maillon **m){
 
 }
 
+void procAjoutEnTeteDeListe(Maillon **m, int n, const char *nom)
+{
+    // Creation d'un maillon dans la memoire
+    Maillon *temp = initMaillon(n,nom);
+
+    if(*m == NULL){
+        *m = temp;
+    }else{
+        temp->next =  *m; // ancienne tete
+        *m = temp;
+    }
+}
+
 
 
 int main()
@@ -136,6 +149,11 @@ int main()
     printf("\n\n********* Affiche recur *********\n\n");
     printf("HEAD \n");
     afficherListeRecur(liste);
+
+    printf("\n\n********* Ajouter en tete*******\n\n");
+    ajoutFinRecur(&liste,3,"C");
+    ajoutFinRecur(&liste,4,"D");
+    afficherListeAvecWhile(liste);
 
 
     // Liberation
