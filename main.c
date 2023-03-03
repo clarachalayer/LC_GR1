@@ -108,6 +108,49 @@ void afficherListeRecur(Maillon *liste)
     }
 }
 
+void freeRec(Maillon **m){
+
+    if(*m == NULL)
+        return;
+    freeRec(&((*m)->next));
+    free(*m);
+    *m= NULL;
+
+}
+
+void procAjoutEnTeteDeListe(Maillon **m, int n, const char *nom)
+{
+    // Creation d'un maillon dans la memoire
+    Maillon *temp = initMaillon(n,nom);
+
+    if(*m == NULL){
+        *m = temp;
+    }else{
+        temp->next =  *m; // ancienne tete
+        *m = temp;
+    }
+}
+
+void procAjoutEnFinDeListe(Maillon **m, int n, const char *nom)
+{
+    Maillon *temp = initMaillon(n, nom);
+    Maillon *tail = *m;
+
+    if (*m == NULL)
+    {
+        *m = temp;
+    }
+    else
+    {
+        while (tail->next != NULL)
+        {
+            tail = tail->next;
+        }
+        tail->next = temp;
+    }
+
+}
+
 
 
 int main()
@@ -126,6 +169,16 @@ int main()
     printf("\n\n********* Affiche recur *********\n\n");
     printf("HEAD \n");
     afficherListeRecur(liste);
+
+    printf("\n\n********* Ajouter en tete*******\n\n");
+    procAjoutEnTeteDeListe(&liste,3,"C");
+    procAjoutEnTeteDeListe(&liste,4,"D");
+    afficherListeAvecWhile(liste);
+
+    printf("\n\n********* Ajouter en fin *******\n\n");
+    procAjoutEnFinDeListe(&liste,5,"E");
+    procAjoutEnFinDeListe(&liste,6,"F");
+    afficherListeAvecWhile(liste);
 
 
     // Liberation
